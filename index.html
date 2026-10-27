@@ -1,0 +1,401 @@
+<!--
+================================================================================
+RED GALAXY - GITHUB PAGES DEPLOYMENT GUIDE
+================================================================================
+1. Create a public repository on GitHub named: redgalaxy or <your-username>.github.io
+2. Upload this file and name it: index.html
+3. Upload your logo image into the SAME root repository folder with the exact filename:
+   Screenshot_2026-10-27_184018-removebg-preview.png
+4. Go to repository Settings -> Pages -> Source: select 'Deploy from a branch' (main / root).
+5. Your site will be live at: https://<your-username>.github.io/
+================================================================================
+-->
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Galaxy | Assets • Tools • Games</title>
+
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        rg: {
+                            bg: '#0a0a0c',
+                            card: '#121216',
+                            cardHover: '#1a1a20',
+                            border: '#22222b',
+                            red: '#e50914',
+                            crimson: '#ff2a42',
+                            glow: '#ff4d4d',
+                            text: '#f8fafc',
+                            muted: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0a0a0c;
+        }
+        .galaxy-glow {
+            background: radial-gradient(circle at 50% -10%, rgba(255, 42, 66, 0.18), rgba(10, 10, 12, 0) 70%);
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px -5px rgba(255, 42, 66, 0.35);
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(255, 42, 66, 0.4));
+        }
+    </style>
+</head>
+<body class="bg-rg-bg text-rg-text font-sans antialiased selection:bg-rg-red selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Ambient Crimson Radial Glow -->
+    <div class="fixed inset-0 galaxy-glow pointer-events-none z-0"></div>
+
+    <!-- 1. MINIMAL STICKY NAVBAR -->
+    <header class="sticky top-0 z-50 bg-rg-bg/90 backdrop-blur-md border-b border-rg-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <img src="Screenshot_2026-10-27_184018-removebg-preview.png" 
+                         alt="Red Galaxy Logo" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/121216/ff2a42?text=RG';"
+                         class="max-h-12 w-auto object-contain logo-glow transition-transform duration-300 group-hover:scale-105">
+                    <div>
+                        <span class="font-black text-xl tracking-wider text-white uppercase font-mono flex items-center gap-1.5">
+                            RED <span class="text-rg-crimson">GALAXY</span>
+                        </span>
+                        <span class="text-[10px] text-rg-muted uppercase tracking-widest block font-mono">Assets • Tools • Games</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="#gallery" class="text-white hover:text-rg-crimson transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-xs text-rg-crimson"></i> Gallery
+                    </a>
+                    <a href="#games" class="text-rg-muted hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad text-xs text-rg-crimson"></i> Games
+                    </a>
+                    <a href="#contact" class="text-rg-muted hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-xs text-rg-crimson"></i> Support
+                    </a>
+                </nav>
+
+                <!-- CTA Links -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="mailto:support@redgalaxy.com" class="text-rg-muted hover:text-white text-sm font-mono px-3 py-2 transition-colors">
+                        Support
+                    </a>
+                    <a href="https://assetstore.unity.com" target="_blank" rel="noopener" class="bg-rg-red hover:bg-rg-crimson text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-lg shadow-rg-red/25 hover:shadow-rg-red/40 flex items-center gap-2">
+                        <i class="fa-solid fa-store"></i> Unity Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO BANNER -->
+    <section class="relative py-16 lg:py-24 z-10 border-b border-rg-border/50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Hero Logo -->
+            <img src="Screenshot_2026-10-27_184018-removebg-preview.png" 
+                 alt="Red Galaxy Logo" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/200x200/121216/ff2a42?text=RED+GALAXY';"
+                 class="max-h-28 sm:max-h-32 w-auto mx-auto mb-6 object-contain logo-glow">
+
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-rg-card border border-rg-border text-xs font-mono text-rg-crimson mb-6 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-rg-crimson animate-pulse"></span> Production-Ready Assets & Projects
+            </div>
+
+            <h1 class="text-5xl sm:text-7xl font-black text-white tracking-tight uppercase leading-none font-sans">
+                RED <span class="bg-gradient-to-r from-red-500 via-rg-red to-rg-crimson bg-clip-text text-transparent">GALAXY</span>
+            </h1>
+
+            <p class="mt-4 text-base sm:text-lg text-rg-muted max-w-xl mx-auto font-mono">
+                Tools • Asset Templates • Games
+            </p>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="#gallery" class="bg-rg-crimson hover:bg-rg-red text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg shadow-rg-crimson/30 flex items-center gap-2">
+                    <i class="fa-solid fa-border-all"></i> Browse Gallery
+                </a>
+                <a href="https://assetstore.unity.com" target="_blank" rel="noopener" class="bg-rg-card hover:bg-rg-border text-white px-8 py-3.5 rounded-xl font-bold border border-rg-border transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-store"></i> Unity Publisher Profile
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. ASSET & GAME GALLERY -->
+    <section id="gallery" class="py-16 z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Gallery Tabs Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-rg-border pb-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-white tracking-tight flex items-center gap-3">
+                        <i class="fa-solid fa-boxes-stacked text-rg-crimson text-2xl"></i> Asset & Game Gallery
+                    </h2>
+                    <p class="text-rg-muted text-sm mt-1">Select a category to filter studio items.</p>
+                </div>
+
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap gap-2" id="filter-buttons">
+                    <button onclick="filterCategory('all')" class="filter-btn active bg-rg-crimson text-white px-4 py-2 rounded-lg text-xs font-semibold font-mono uppercase transition-all">All</button>
+                    <button onclick="filterCategory('tools')" class="filter-btn bg-rg-card text-rg-muted hover:text-white border border-rg-border px-4 py-2 rounded-lg text-xs font-semibold font-mono uppercase transition-all">Tools & Utilities</button>
+                    <button onclick="filterCategory('templates')" class="filter-btn bg-rg-card text-rg-muted hover:text-white border border-rg-border px-4 py-2 rounded-lg text-xs font-semibold font-mono uppercase transition-all">Templates</button>
+                    <button onclick="filterCategory('games')" class="filter-btn bg-rg-card text-rg-muted hover:text-white border border-rg-border px-4 py-2 rounded-lg text-xs font-semibold font-mono uppercase transition-all">Games</button>
+                </div>
+            </div>
+
+            <!-- Asset Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="asset-grid">
+
+                <!-- CARD 1: TOOLS -->
+                <div class="asset-card tools bg-rg-card border border-rg-border rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-red-950/60 to-rg-bg border-b border-rg-border p-6 flex flex-col justify-between relative">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-rg-crimson/20 text-rg-crimson border border-rg-crimson/30 px-3 py-1 rounded-full text-xs font-mono font-semibold">Tools & Utilities</span>
+                            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded text-xs font-mono">Available</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-note-sticky text-3xl text-rg-crimson mb-2"></i>
+                            <h3 class="text-xl font-bold text-white">SceneNotes Pro</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-rg-muted text-sm leading-relaxed">
+                            Attach floating 3D sticky notes and team documentation directly inside the Unity Scene View.
+                        </p>
+                        <div class="space-y-3 pt-4 border-t border-rg-border/50">
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">C# Editor</span>
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">Undo Safe</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <button onclick="openModal('SceneNotes Pro', 'Attach floating 3D sticky notes and team documentation directly inside the Unity Scene View. Clean C# source code included.', 'Tools & Utilities', '$14.99')" class="text-xs font-semibold text-rg-crimson hover:underline">
+                                    View Details &rarr;
+                                </button>
+                                <a href="https://assetstore.unity.com" target="_blank" rel="noopener" class="bg-rg-red hover:bg-rg-crimson text-white text-xs px-3.5 py-2 rounded-lg font-semibold transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-cart-shopping"></i> Unity Store
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: TOOLS -->
+                <div class="asset-card tools bg-rg-card border border-rg-border rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-red-950/60 to-rg-bg border-b border-rg-border p-6 flex flex-col justify-between relative">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-rg-crimson/20 text-rg-crimson border border-rg-crimson/30 px-3 py-1 rounded-full text-xs font-mono font-semibold">Tools & Utilities</span>
+                            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded text-xs font-mono">Available</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-sliders text-3xl text-rg-crimson mb-2"></i>
+                            <h3 class="text-xl font-bold text-white">Custom Inspector Suite</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-rg-muted text-sm leading-relaxed">
+                            Attribute-driven inspector extensions to organize Unity C# fields with buttons, tabs, and validation guards.
+                        </p>
+                        <div class="space-y-3 pt-4 border-t border-rg-border/50">
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">Attributes</span>
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">Editor Extension</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <button onclick="openModal('Custom Inspector Suite', 'Attribute-driven inspector extensions to customize C# scripts without writing custom editor classes.', 'Tools & Utilities', '$19.99')" class="text-xs font-semibold text-rg-crimson hover:underline">
+                                    View Details &rarr;
+                                </button>
+                                <a href="https://assetstore.unity.com" target="_blank" rel="noopener" class="bg-rg-red hover:bg-rg-crimson text-white text-xs px-3.5 py-2 rounded-lg font-semibold transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-cart-shopping"></i> Unity Store
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: TEMPLATES -->
+                <div class="asset-card templates bg-rg-card border border-rg-border rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-red-950/30 to-rg-bg border-b border-rg-border p-6 flex flex-col justify-between relative">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-mono font-semibold">Templates</span>
+                            <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2.5 py-0.5 rounded text-xs font-mono">In Review</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-bolt text-3xl text-amber-400 mb-2"></i>
+                            <h3 class="text-xl font-bold text-white">RedEvent Architecture</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-rg-muted text-sm leading-relaxed">
+                            Zero-allocation decoupled event bus framework template using ScriptableObjects.
+                        </p>
+                        <div class="space-y-3 pt-4 border-t border-rg-border/50">
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">Zero GC</span>
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">ScriptableObjects</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <button onclick="openModal('RedEvent Architecture Framework', 'Decoupled ScriptableObject-driven architecture template for modular game development.', 'Templates', 'TBA')" class="text-xs font-semibold text-rg-crimson hover:underline">
+                                    View Details &rarr;
+                                </button>
+                                <button disabled class="bg-rg-border text-rg-muted text-xs px-3.5 py-2 rounded-lg font-semibold cursor-not-allowed">
+                                    Pending Review
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: GAMES (UPCOMING) -->
+                <div id="games" class="asset-card games bg-rg-card border border-rg-border rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col">
+                    <div class="h-44 bg-gradient-to-br from-red-950/20 to-rg-bg border-b border-rg-border p-6 flex flex-col justify-between relative">
+                        <div class="flex justify-between items-start">
+                            <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 px-3 py-1 rounded-full text-xs font-mono font-semibold">Games</span>
+                            <span class="bg-rg-border text-rg-muted px-2.5 py-0.5 rounded text-xs font-mono">Coming Soon</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-gamepad text-3xl text-purple-400 mb-2"></i>
+                            <h3 class="text-xl font-bold text-white">Unannounced Project</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <p class="text-rg-muted text-sm leading-relaxed">
+                            Internal game title currently in early design phase by Red Galaxy.
+                        </p>
+                        <div class="space-y-3 pt-4 border-t border-rg-border/50">
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">Game Project</span>
+                                <span class="bg-rg-bg border border-rg-border text-rg-muted px-2 py-1 rounded">Red Galaxy Studio</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <button onclick="openModal('Unannounced Game Title', 'Red Galaxy is actively planning game titles alongside Unity tool development. Announcement details will be posted in future updates.', 'Games', 'TBA')" class="text-xs font-semibold text-rg-crimson hover:underline">
+                                    View Details &rarr;
+                                </button>
+                                <span class="text-xs text-rg-muted font-mono">Planned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOOTER & SUPPORT INFO -->
+    <footer id="contact" class="mt-auto border-t border-rg-border bg-rg-bg py-10 text-xs text-rg-muted z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-rg-border/60">
+                <!-- Brand Info -->
+                <div class="flex items-center gap-3">
+                    <img src="Screenshot_2026-10-27_184018-removebg-preview.png" 
+                         alt="Red Galaxy Logo" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/60x60/121216/ff2a42?text=RG';"
+                         class="max-h-8 w-auto object-contain logo-glow">
+                    <span class="font-extrabold text-white font-mono uppercase tracking-wider">RED <span class="text-rg-crimson">GALAXY</span></span>
+                    <span class="text-rg-muted/60">&copy; 2026 Red Galaxy. All rights reserved.</span>
+                </div>
+
+                <!-- Support Contact Links -->
+                <div class="flex items-center gap-6">
+                    <a href="mailto:support@redgalaxy.com" class="text-rg-muted hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-rg-crimson"></i> support@redgalaxy.com
+                    </a>
+                    <a href="https://assetstore.unity.com" target="_blank" rel="noopener" class="text-rg-muted hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-store text-rg-crimson"></i> Unity Publisher
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center md:text-left text-rg-muted/50 text-[11px]">
+                Unity is a registered trademark of Unity Technologies. Red Galaxy is an independent developer and publisher of Unity editor extensions, code templates, and video games.
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE DETAIL MODAL -->
+    <div id="detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-rg-card border border-rg-border w-full max-w-lg rounded-2xl p-6 relative space-y-4 shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-rg-muted hover:text-white text-lg p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span id="modal-category" class="bg-rg-crimson/20 text-rg-crimson border border-rg-crimson/30 px-3 py-1 rounded-full text-xs font-mono font-semibold inline-block">Category</span>
+            <h3 id="modal-title" class="text-2xl font-bold text-white">Asset Title</h3>
+            <p id="modal-desc" class="text-rg-muted text-sm leading-relaxed">Detailed description...</p>
+            <div class="flex items-center justify-between pt-4 border-t border-rg-border">
+                <span id="modal-price" class="text-lg font-bold text-white font-mono">$0.00</span>
+                <a href="https://assetstore.unity.com" target="_blank" rel="noopener" class="bg-rg-red hover:bg-rg-crimson text-white text-xs px-4 py-2.5 rounded-xl font-semibold transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping"></i> Unity Store Page
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLIENT JAVASCRIPT LOGIC -->
+    <script>
+        function filterCategory(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.asset-card');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-rg-crimson', 'text-white');
+                btn.classList.add('bg-rg-card', 'text-rg-muted');
+            });
+
+            event.target.classList.add('bg-rg-crimson', 'text-white');
+            event.target.classList.remove('bg-rg-card', 'text-rg-muted');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(title, desc, category, price) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-category').innerText = category;
+            document.getElementById('modal-price').innerText = price;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
